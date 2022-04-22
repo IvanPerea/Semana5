@@ -9,27 +9,28 @@ struct nodo{
 
 typedef struct nodo *NODO;
 
-
-NODO creandoNodo(int x)
+NODO NewNodo(int x)
 {
-     NODO nuevoNodo = new(struct nodo);
-     nuevoNodo->number = x;
-     nuevoNodo->left = NULL;
-     nuevoNodo->right = NULL;
+     NODO New = new(struct nodo);
+     New->number = x;
+     New->left = NULL;
+     New->right = NULL;
 
-     return nuevoNodo;
+     return New;
 }
 void insertar(NODO &tree, int x)
 {
      if(tree==NULL)
      {
-           tree = creandoNodo(x);
+           tree = NewNodo(x);
      }
      else if(x < tree->number)
           insertar(tree->left, x);
      else if(x > tree->number)
           insertar(tree->right, x);
 }
+
+
 
 void preOrden(NODO tree)
 {
@@ -61,18 +62,18 @@ void postOrden(NODO tree)
      }
 }
 
-void verArbol(NODO tree, int n)
+void Check(NODO tree, int n)
 {
      if(tree==NULL)
           return;
-     verArbol(tree->right, n+1);
+     Check(tree->right, n+1);
 
      for(int i=0; i<n; i++)
          cout<<"   ";
 
      cout<< tree->number <<endl;
 
-     verArbol(tree->left, n+1);
+     Check(tree->left, n+1);
 }
 
 int main()
@@ -81,8 +82,6 @@ int main()
 
     int n;
     int x; 
-
-    cout << "\n\t\t  ..[ Haciendo la busqueda del arbol]..  \n\n";
 
     cout << " NUMERO DE NODOS - ARBOL:  ";
     cin >> n;
@@ -96,14 +95,14 @@ int main()
     }
 
     cout << "\n IMPRIMIENDO........ \n\n";
-    verArbol( tree, 0);
+    Check( tree, 0);
 
     cout << "\n RECORRIDOS EN 3...2...1....";
+
 
     cout << "\n\n En orden   :  ";   enOrden(tree);
     cout << "\n\n Pre Orden  :  ";   preOrden(tree);
     cout << "\n\n Post Orden :  ";   postOrden(tree);
-
     cout << endl << endl;
 
     system("pause");
