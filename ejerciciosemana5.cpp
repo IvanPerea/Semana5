@@ -7,19 +7,19 @@ struct nodo{
      struct nodo *left, *right;
 };
 
-typedef struct nodo *ABB;
+typedef struct nodo *NODO;
 
 
-ABB creandoNodo(int x)
+NODO creandoNodo(int x)
 {
-     ABB nuevoNodo = new(struct nodo);
+     NODO nuevoNodo = new(struct nodo);
      nuevoNodo->number = x;
      nuevoNodo->left = NULL;
      nuevoNodo->right = NULL;
 
      return nuevoNodo;
 }
-void insertar(ABB &tree, int x)
+void insertar(NODO &tree, int x)
 {
      if(tree==NULL)
      {
@@ -31,7 +31,7 @@ void insertar(ABB &tree, int x)
           insertar(tree->right, x);
 }
 
-void preOrden(ABB tree)
+void preOrden(NODO tree)
 {
      if(tree!=NULL)
      {
@@ -41,7 +41,7 @@ void preOrden(ABB tree)
      }
 }
 
-void enOrden(ABB tree)
+void enOrden(NODO tree)
 {
      if(tree!=NULL)
      {
@@ -51,7 +51,7 @@ void enOrden(ABB tree)
      }
 }
 
-void postOrden(ABB tree)
+void postOrden(NODO tree)
 {
      if(tree!=NULL)
      {
@@ -61,7 +61,7 @@ void postOrden(ABB tree)
      }
 }
 
-void verArbol(ABB tree, int n)
+void verArbol(NODO tree, int n)
 {
      if(tree==NULL)
           return;
@@ -77,32 +77,32 @@ void verArbol(ABB tree, int n)
 
 int main()
 {
-    ABB arbol = NULL;
+    NODO tree = NULL;
 
     int n;
     int x; 
 
     cout << "\n\t\t  ..[ Haciendo la busqueda del arbol]..  \n\n";
 
-    cout << " Numero de nodos del arbol:  ";
+    cout << " NUMERO DE NODOS - ARBOL:  ";
     cin >> n;
     cout << endl;
 
     for(int i=0; i<n; i++)
     {
-        cout << " Esto son la cantidades de lo nodos " << i+1 << ": ";
+        cout << " CANTIDAD DE NODOS...... " << i+1 << ": ";
         cin >> x;
-        insertar( arbol, x);
+        insertar( tree, x);
     }
 
-    cout << "\n Mostrando El arbol \n\n";
-    verArbol( arbol, 0);
+    cout << "\n IMPRIMIENDO........ \n\n";
+    verArbol( tree, 0);
 
-    cout << "\n Recorridos del arbol y su subnodos";
+    cout << "\n RECORRIDOS EN 3...2...1....";
 
-    cout << "\n\n En orden   :  ";   enOrden(arbol);
-    cout << "\n\n Pre Orden  :  ";   preOrden(arbol);
-    cout << "\n\n Post Orden :  ";   postOrden(arbol);
+    cout << "\n\n En orden   :  ";   enOrden(tree);
+    cout << "\n\n Pre Orden  :  ";   preOrden(tree);
+    cout << "\n\n Post Orden :  ";   postOrden(tree);
 
     cout << endl << endl;
 
