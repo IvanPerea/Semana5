@@ -69,7 +69,7 @@ void Check(NODO tree, int n)
      Check(tree->right, n+1);
 
      for(int i=0; i<n; i++)
-         cout<<"   ";
+         cout<<" ";
 
      cout<< tree->number <<endl;
 
@@ -83,13 +83,13 @@ int main()
     int n;
     int x; 
 
-    cout << " NUMERO DE NODOS - ARBOL:  ";
+    cout << " NUMERO DE NODOS - ARBOL:    ";
     cin >> n;
     cout << endl;
 
     for(int i=0; i<n; i++)
     {
-        cout << " CANTIDAD DE NODOS...... " << i+1 << ": ";
+        cout << " CANTIDAD DE NODOS...... " << i+1 << ":    ";
         cin >> x;
         insertar( tree, x);
     }
