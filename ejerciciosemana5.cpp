@@ -18,16 +18,16 @@ NODO NewNodo(int x)
 
      return New;
 }
-void insertar(NODO &tree, int x)
+void Insertando(NODO &tree, int x)
 {
      if(tree==NULL)
      {
            tree = NewNodo(x);
      }
      else if(x < tree->number)
-          insertar(tree->left, x);
+          Insertando(tree->left, x);
      else if(x > tree->number)
-          insertar(tree->right, x);
+          Insertando(tree->right, x);
 }
 
 
@@ -91,7 +91,7 @@ int main()
     {
         cout << " CANTIDAD DE NODOS...... " << i+1 << ":    ";
         cin >> x;
-        insertar( tree, x);
+        Insertando( tree, x);
     }
 
     cout << "\n IMPRIMIENDO........ \n\n";
@@ -100,10 +100,12 @@ int main()
     cout << "\n RECORRIDOS EN 3...2...1....";
 
 
-    cout << "\n\n En orden   :  ";   enOrden(tree);
-    cout << "\n\n Pre Orden  :  ";   preOrden(tree);
-    cout << "\n\n Post Orden :  ";   postOrden(tree);
-    cout << endl << endl;
+    cout << "\n En orden   :  ";             enOrden(tree);
+    cout << "\n Pre Orden  :  ";             preOrden(tree);
+    cout << "\n Post Orden :  ";             postOrden(tree);
+
+
+
 
     system("pause");
     return 0;
